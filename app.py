@@ -57,10 +57,10 @@ class Myblogcontent(db.Model):
 
 @app.route('/')
 @cache.cached(timeout=10)
-def home():
+def index():
     myblog_data=Myblog.query.order_by(Myblog.mbid.desc()).limit(10)
     expertblog_data=Expertblog.query.order_by(Expertblog.ebid).all()
-    return render_template('home.html', myblog_data=myblog_data,expertblog_data=expertblog_data)
+    return render_template('index.html', myblog_data=myblog_data,expertblog_data=expertblog_data)
 
 @app.route('/content')
 #@cache.cached(timeout=10)
